@@ -1,0 +1,22 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Java
+backend/target/
+backend/uploads/
+
+# 临时文件
+stop
+test.pdf
+.DS_Store
