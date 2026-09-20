@@ -332,7 +332,7 @@ const searchStock = async () => {
 
   loading.value = true
   try {
-    const response = await axios.get(`http://localhost:8080/api/financial/stock-history/${stockCode.value}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE || '/api'}/financial/stock-history/${stockCode.value}`)
     if (response.data.code === 200 && response.data.data.length > 0) {
       const data = response.data.data
       const firstItem = data[0]
@@ -360,7 +360,7 @@ const onStockChange = async () => {
 
   loading.value = true
   try {
-    const response = await axios.get(`http://localhost:8080/api/financial/stock-history/${selectedStock.value}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE || '/api'}/financial/stock-history/${selectedStock.value}`)
     if (response.data.code === 200) {
       const allData = response.data.data
       const years = [...new Set(allData.map(item => item.report_date))].sort((a, b) => a - b)
@@ -380,7 +380,7 @@ const loadStockData = async () => {
 
   loading.value = true
   try {
-    const response = await axios.get(`http://localhost:8080/api/financial/stock-history/${selectedStock.value}`)
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE || '/api'}/financial/stock-history/${selectedStock.value}`)
     if (response.data.code === 200) {
       let data = response.data.data
       if (selectedYears.value.length > 0) {
@@ -639,7 +639,7 @@ const generateAIProfile = async () => {
 
 请用简洁专业的语言进行分析，每部分不超过50字。`
 
-    const response = await axios.post('http://localhost:8080/api/ai/analyze', {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE || '/api'}/ai/analyze`, {
       prompt: prompt
     })
 
@@ -704,7 +704,7 @@ const sendChatMessage = async () => {
       `.trim()
     }
 
-    const response = await axios.post('http://localhost:8080/api/ai/analyze', {
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE || '/api'}/ai/analyze`, {
       prompt: prompt
     })
 
