@@ -1,0 +1,1 @@
+import{r}from"./request-597dc6e7.js";function o(t){return r({url:"/auth/register",method:"post",data:t})}function u(t){return r({url:"/auth/login",method:"post",data:t})}function a(){return r({url:"/auth/captcha",method:"get"})}export{a as g,u as l,o as r};
