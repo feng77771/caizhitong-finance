@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: caizhitong-api
+    plan: free
+    runtime: docker
+    dockerfilePath: ./deploy-render/Dockerfile
+    dockerContext: ./deploy-render
+    healthCheckPath: /api/auth/captcha
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: h2
